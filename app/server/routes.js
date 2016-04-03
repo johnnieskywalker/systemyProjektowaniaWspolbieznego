@@ -79,6 +79,19 @@ module.exports = function(app) {
 		}
 	});
 
+	app.get('/tasks', function(req, res) {
+		if (req.session.user == null){
+			// if user is not logged-in redirect back to login page //
+			res.redirect('/');
+		}	else{
+			res.render('taskManagement', {
+				title : 'Tasks',
+				countries : CT,
+				udata : req.session.user
+			});
+		}
+	});
+
 	app.post('/logout', function(req, res){
 		res.clearCookie('user');
 		res.clearCookie('pass');
