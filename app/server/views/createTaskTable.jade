@@ -5,4 +5,30 @@
 input(type='hidden', value= user._id)#userId
 
 
-include modals/form-errors
+.task-form-container
+    form( method="post").task-form.form-horizontal.well.span6
+        h1
+        p#sub1.subheading What has to be done?
+        hr
+        fieldset
+            #task-name-cg.control-group
+                label.control-label(for='name-tf') Task Name
+                .controls
+                    input#task-name-tf(type='text', name='name', value= "")
+            #task-description-cg.control-group
+                label.control-label(for='task-tf') Description
+                .controls
+                    input#task-tf(type='text', name='description', value= "")
+            #employee-list-cg.control-group
+                label.control-label(for='employee-list') Person
+                //.controls
+                //    select#employee-list(name='person')
+                //each item in employees
+                //    option(selected=item.name == user.name)= item.name
+            hr
+
+            .form-buttons
+                button(type='button')#account-form-btn2.btn
+                button(type='submit')#account-form-btn1.btn
+
+//include modals/form-errors

@@ -137,3 +137,7 @@ label {
 button i {
   padding-left: 8px;
 }
+.task-form-container {
+  width: 340px;
+  margin: 160px auto;
+}
