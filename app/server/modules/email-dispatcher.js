@@ -5,8 +5,8 @@ module.exports = EM;
 EM.server = require("emailjs/email").server.connect(
 {
 	host 	    : process.env.EMAIL_HOST || 'smtp.gmail.com',
-	user 	    : process.env.EMAIL_USER || 'your-email-address@gmail.com',
-	password    : process.env.EMAIL_PASS || '1234',
+	user 	    : process.env.EMAIL_USER || 'systemywspolbiezne1@gmail.com',
+	password    : process.env.EMAIL_PASS || '123456aaaaaaa',
 	ssl		    : true
 });
 
@@ -23,7 +23,7 @@ EM.dispatchResetPasswordLink = function(account, callback)
 
 EM.composeEmail = function(o)
 {
-	var link = 'http://node-login.braitsch.io/reset-password?e='+o.email+'&p='+o.pass;
+	var link = 'http://localhost:3000/reset-password?e='+o.email+'&p='+o.pass;
 	var html = "<html><body>";
 		html += "Hi "+o.name+",<br><br>";
 		html += "Your username is <b>"+o.user+"</b><br><br>";
