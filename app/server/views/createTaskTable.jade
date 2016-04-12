@@ -19,13 +19,33 @@ input(type='hidden', value= user._id)#userId
                 label.control-label(for='task-tf') Description
                 .controls
                     input#task-tf(type='text', name='description', value= "")
-            #employee-list-cg.control-group
-                label.control-label(for='employee-list') Person
-                //.controls
-                //    select#employee-list(name='person')
-                //each item in employees
-                //    option(selected=item.name == user.name)= item.name
+            #userList-cg.control-group
+                label.control-label(for='accts') Person
+                .controls
+                    select#country-list(name='person')
+                        each item in accts
+                            option(selected=item.name == person)= item.name
+
+            //div.container(style='margin:20px')
+            //    table.table.table-bordered.table-striped
+            //        thead
+            //            tr
+            //                th(style='width:40px') #
+            //                th(style='width:180px') Name
+            //                th(style='width:200px') Location
+            //                th(style='width:180px') Username
+            //                th Account Created
+            //        tbody
+            //        - for (var i = 0; i < accts.length; i++)
+            //        tr
+            //            td= i + 1
+            //            td= accts
+                        //td= accts[i].country
+                        //td= accts[i].user
+                        //td= accts[i].date
             hr
+
+
 
             .form-buttons
                 button(type='button')#account-form-btn2.btn

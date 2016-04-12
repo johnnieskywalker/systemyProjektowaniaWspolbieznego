@@ -80,16 +80,20 @@ module.exports = function(app) {
 	});
 
 	app.get('/tasks', function(req, res) {
-		if (req.session.user == null){
-			// if user is not logged-in redirect back to login page //
-			res.redirect('/');
-		}	else{
-			res.render('taskManagement', {
-				title : 'Tasks',
-				countries : CT,
-				udata : req.session.user
-			});
-		}
+		AM.getAllRecords( function(e, accounts){
+			res.render('taskManagement', { title : 'Account List', accts : accounts });
+		})
+		//if (req.session.user == null){
+		//	// if user is not logged-in redirect back to login page //
+		//	res.redirect('/');
+		//}	else{
+        //
+		//	res.render('taskManagement', {
+		//		title : 'Tasks',
+		//		countries : CT,
+		//		udata : req.session.user
+		//	});
+		//}
 	});
 
 	app.post('/logout', function(req, res){
