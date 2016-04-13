@@ -19,6 +19,10 @@ input(type='hidden', value= user._id)#userId
                 label.control-label(for='task-tf') Description
                 .controls
                     input#task-tf(type='text', name='description', value= "")
+            #task-deadline-cg.control-group
+                label.control-label(for='deadline-tf') Deadline
+                .controls
+                    input#deadline-tf(type='text', name='deadline', value= new Date())
             #userList-cg.control-group
                 label.control-label(for='accts') Person
                 .controls
