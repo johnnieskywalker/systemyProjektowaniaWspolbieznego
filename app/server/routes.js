@@ -136,6 +136,12 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/gantt', function(req, res) {
+		AM.getAllRecords( function(e, accounts){
+			res.render('gantt', { title : 'Account List', accts : accounts });
+		})
+	});
+
 // password reset //
 
 	app.post('/lost-password', function(req, res){
