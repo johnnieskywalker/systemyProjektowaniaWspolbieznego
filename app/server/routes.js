@@ -124,8 +124,8 @@ module.exports = function(app) {
 			description : req.body['description'],
 			startDay : req.body['startDay'],
 			duration : req.body['duration'],
-			color : req.body['color']
-			//person : req.body['person']
+			color : req.body['color'],
+			person : req.body['person']
 
 		}, function(e){
 			if (e){
@@ -135,20 +135,6 @@ module.exports = function(app) {
 			}
 		});
 	});
-		//AM.addNewAccount({
-		//	name 	: req.body['name'],
-		//	email 	: req.body['email'],
-		//	user 	: req.body['user'],
-		//	pass	: req.body['pass'],
-		//	country : req.body['country']
-		//}, function(e){
-		//	if (e){
-		//		res.status(400).send(e);
-		//	}	else{
-		//		res.status(200).send('ok');
-		//	}
-		//});
-	//});
 
 // password reset //
 
