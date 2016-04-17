@@ -9,6 +9,12 @@ block content
                a(href='#').brand My Tasks
             ul#global-nav.nav.pull-left
                a(href='/home').brand Control Panel
+            #userList-cg.control-group
+               label.control-label(for='tsks') Task
+               .controls
+                  select#country-list(name='person')
+                     each item in tsks
+                        option(selected=item.name == person)= item.name
             button#btn-logout.btn.btn-primary
                i.icon-lock.icon-white
                | Sign Out

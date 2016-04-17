@@ -137,8 +137,8 @@ module.exports = function(app) {
 	});
 
 	app.get('/gantt', function(req, res) {
-		AM.getAllRecords( function(e, accounts){
-			res.render('gantt', { title : 'Account List', accts : accounts });
+		TASK_MANAGER.getAllTasks( function(e, tasks){
+			res.render('gantt', { title : 'Account List', tsks : tasks});
 		})
 	});
 

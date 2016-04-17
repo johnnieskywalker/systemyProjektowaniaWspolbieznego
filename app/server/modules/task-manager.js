@@ -27,3 +27,13 @@ exports.addNewTask = function (newData, callback) {
             newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
             tasks.insert(newData, {safe: true}, callback);
 }
+
+exports.getAllTasks = function(callback)
+{
+    tasks.find().toArray(
+        function(e, res) {
+            if (e) callback(e)
+            else callback(null, res)
+        });
+}
+
