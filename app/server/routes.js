@@ -124,8 +124,8 @@ module.exports = function(app) {
 			description : req.body['description'],
 			startDay : req.body['startDay'],
 			duration : req.body['duration'],
-			color : req.body['color'],
-			person : req.body['person']
+			color : req.body['color']
+			//person : req.body['person']
 
 		}, function(e){
 			if (e){

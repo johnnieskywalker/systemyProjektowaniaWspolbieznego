@@ -11,14 +11,14 @@ var dbName 		= 'node-login';
 /* establish the database connection */
 
 var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
-	db.open(function(e, d){
+db.open(function(e, d){
 	if (e) {
 		console.log(e);
 	}	else{
 		console.log('connected to database :: ' + dbName);
 	}
 });
-var accounts = db.collection('tasks');
+var accounts = db.collection('accounts');
 
 /* login validation methods */
 
@@ -64,7 +64,7 @@ exports.addNewAccount = function(newData, callback)
 				}	else{
 					saltAndHash(newData.pass, function(hash){
 						newData.pass = hash;
-					// append date stamp when record was created //
+						// append date stamp when record was created //
 						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
 						accounts.insert(newData, {safe: true}, callback);
 					});
@@ -104,8 +104,8 @@ exports.updatePassword = function(email, newPass, callback)
 			callback(e, null);
 		}	else{
 			saltAndHash(newPass, function(hash){
-		        o.pass = hash;
-		        accounts.save(o, {safe: true}, callback);
+				o.pass = hash;
+				accounts.save(o, {safe: true}, callback);
 			});
 		}
 	});
@@ -134,14 +134,14 @@ exports.getAllRecords = function(callback)
 {
 	accounts.find().toArray(
 		function(e, res) {
-		if (e) callback(e)
-		else callback(null, res)
-	});
+			if (e) callback(e)
+			else callback(null, res)
+		});
 }
 
 exports.delAllRecords = function(callback)
 {
-	accounts.remove({}, callback); // reset tasks collection for testing //
+	accounts.remove({}, callback); // reset accounts collection for testing //
 }
 
 /* private encryption & validation methods */
@@ -183,9 +183,9 @@ var findById = function(id, callback)
 {
 	accounts.findOne({_id: getObjectId(id)},
 		function(e, res) {
-		if (e) callback(e)
-		else callback(null, res)
-	});
+			if (e) callback(e)
+			else callback(null, res)
+		});
 }
 
 var findByMultipleFields = function(a, callback)
@@ -193,7 +193,7 @@ var findByMultipleFields = function(a, callback)
 // this takes an array of name/val pairs to search against {fieldName : 'value'} //
 	accounts.find( { $or : a } ).toArray(
 		function(e, results) {
-		if (e) callback(e)
-		else callback(null, results)
-	});
+			if (e) callback(e)
+			else callback(null, results)
+		});
 }
