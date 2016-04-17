@@ -2,6 +2,7 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var TASK_MANAGER = require('./modules/task-manager');
 
 module.exports = function(app) {
 
@@ -79,22 +80,6 @@ module.exports = function(app) {
 		}
 	});
 
-	app.get('/tasks', function(req, res) {
-		AM.getAllRecords( function(e, accounts){
-			res.render('taskManagement', { title : 'Account List', accts : accounts });
-		})
-		//if (req.session.user == null){
-		//	// if user is not logged-in redirect back to login page //
-		//	res.redirect('/');
-		//}	else{
-        //
-		//	res.render('taskManagement', {
-		//		title : 'Tasks',
-		//		countries : CT,
-		//		udata : req.session.user
-		//	});
-		//}
-	});
 
 	app.post('/logout', function(req, res){
 		res.clearCookie('user');
@@ -102,7 +87,7 @@ module.exports = function(app) {
 		req.session.destroy(function(e){ res.status(200).send('ok'); });
 	})
 	
-// creating new accounts //
+// creating new users //
 	
 	app.get('/signup', function(req, res) {
 		res.render('signup', {  title: 'Signup', countries : CT });
@@ -123,6 +108,47 @@ module.exports = function(app) {
 			}
 		});
 	});
+
+	// creating new tasks //
+
+
+	app.get('/tasks', function(req, res) {
+		AM.getAllRecords( function(e, accounts){
+			res.render('taskManagement', { title : 'Account List', accts : accounts });
+		})
+	});
+
+	app.post('/tasks', function(req, res){
+		TASK_MANAGER.addNewTask({
+			name : req.body['name'],
+			description : req.body['description'],
+			startDay : req.body['startDay'],
+			duration : req.body['duration'],
+			color : req.body['color'],
+			person : req.body['person']
+
+		}, function(e){
+			if (e){
+				res.status(400).send(e);
+			}	else{
+				res.status(200).send('ok');
+			}
+		});
+	});
+		//AM.addNewAccount({
+		//	name 	: req.body['name'],
+		//	email 	: req.body['email'],
+		//	user 	: req.body['user'],
+		//	pass	: req.body['pass'],
+		//	country : req.body['country']
+		//}, function(e){
+		//	if (e){
+		//		res.status(400).send(e);
+		//	}	else{
+		//		res.status(200).send('ok');
+		//	}
+		//});
+	//});
 
 // password reset //
 
@@ -175,7 +201,7 @@ module.exports = function(app) {
 		})
 	});
 	
-// view & delete accounts //
+// view & delete tasks //
 	
 	app.get('/print', function(req, res) {
 		AM.getAllRecords( function(e, accounts){

@@ -18,77 +18,52 @@ var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}),
 		console.log('connected to database :: ' + dbName);
 	}
 });
-var accounts = db.collection('tasks');
+var tasks = db.collection('tasks');
 
-/* login validation methods */
-
-exports.autoLogin = function(user, pass, callback)
-{
-	accounts.findOne({user:user}, function(e, o) {
-		if (o){
-			o.pass == pass ? callback(o) : callback(null);
-		}	else{
-			callback(null);
-		}
-	});
-}
-
-exports.manualLogin = function(user, pass, callback)
-{
-	accounts.findOne({user:user}, function(e, o) {
-		if (o == null){
-			callback('user-not-found');
-		}	else{
-			validatePassword(pass, o.pass, function(err, res) {
-				if (res){
-					callback(null, o);
-				}	else{
-					callback('invalid-password');
-				}
-			});
-		}
-	});
-}
 
 /* record insertion, update & deletion methods */
 
-exports.addNewAccount = function(newData, callback)
+exports.addNewTask = function(newData, callback)
 {
-	accounts.findOne({user:newData.user}, function(e, o) {
-		if (o){
-			callback('username-taken');
-		}	else{
-			accounts.findOne({email:newData.email}, function(e, o) {
-				if (o){
-					callback('email-taken');
-				}	else{
+	tasks.findOne({user:newData.user}, function(e, o) {
+		//if (o){
+		//	callback('username-taken');
+		//}	else{
+		//	tasks.findOne({email:newData.email}, function(e, o) {
+		//		if (o){
+		//			callback('email-taken');
+		//		}	else{
 					saltAndHash(newData.pass, function(hash){
 						newData.pass = hash;
 					// append date stamp when record was created //
 						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
-						accounts.insert(newData, {safe: true}, callback);
+						tasks.insert(newData, {safe: true}, callback);
 					});
-				}
-			});
-		}
+			//	}
+			//});
+	//	}
 	});
 }
 
 exports.updateAccount = function(newData, callback)
 {
-	accounts.findOne({_id:getObjectId(newData.id)}, function(e, o){
+	tasks.findOne({_id:getObjectId(newData.id)}, function(e, o){
 		o.name 		= newData.name;
-		o.email 	= newData.email;
-		o.country 	= newData.country;
+		o.description 	= newData.description;
+		o.startDay 	= newData.startDay;
+		o.duration 	= newData.duration;
+		o.color = newData.color;
+		o.person = newData.person;
+
 		if (newData.pass == ''){
-			accounts.save(o, {safe: true}, function(e) {
+			tasks.save(o, {safe: true}, function(e) {
 				if (e) callback(e);
 				else callback(null, o);
 			});
 		}	else{
 			saltAndHash(newData.pass, function(hash){
 				o.pass = hash;
-				accounts.save(o, {safe: true}, function(e) {
+				tasks.save(o, {safe: true}, function(e) {
 					if (e) callback(e);
 					else callback(null, o);
 				});
@@ -99,13 +74,13 @@ exports.updateAccount = function(newData, callback)
 
 exports.updatePassword = function(email, newPass, callback)
 {
-	accounts.findOne({email:email}, function(e, o){
+	tasks.findOne({email:email}, function(e, o){
 		if (e){
 			callback(e, null);
 		}	else{
 			saltAndHash(newPass, function(hash){
 		        o.pass = hash;
-		        accounts.save(o, {safe: true}, callback);
+		        tasks.save(o, {safe: true}, callback);
 			});
 		}
 	});
@@ -115,24 +90,24 @@ exports.updatePassword = function(email, newPass, callback)
 
 exports.deleteAccount = function(id, callback)
 {
-	accounts.remove({_id: getObjectId(id)}, callback);
+	tasks.remove({_id: getObjectId(id)}, callback);
 }
 
 exports.getAccountByEmail = function(email, callback)
 {
-	accounts.findOne({email:email}, function(e, o){ callback(o); });
+	tasks.findOne({email:email}, function(e, o){ callback(o); });
 }
 
 exports.validateResetLink = function(email, passHash, callback)
 {
-	accounts.find({ $and: [{email:email, pass:passHash}] }, function(e, o){
+	tasks.find({ $and: [{email:email, pass:passHash}] }, function(e, o){
 		callback(o ? 'ok' : null);
 	});
 }
 
 exports.getAllRecords = function(callback)
 {
-	accounts.find().toArray(
+	tasks.find().toArray(
 		function(e, res) {
 		if (e) callback(e)
 		else callback(null, res)
@@ -141,11 +116,11 @@ exports.getAllRecords = function(callback)
 
 exports.delAllRecords = function(callback)
 {
-	accounts.remove({}, callback); // reset tasks collection for testing //
+	tasks.remove({}, callback); // reset tasks collection for testing //
 }
 
 /* private encryption & validation methods */
-
+//
 var generateSalt = function()
 {
 	var set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ';
@@ -181,7 +156,7 @@ var getObjectId = function(id)
 
 var findById = function(id, callback)
 {
-	accounts.findOne({_id: getObjectId(id)},
+	tasks.findOne({_id: getObjectId(id)},
 		function(e, res) {
 		if (e) callback(e)
 		else callback(null, res)
@@ -191,7 +166,7 @@ var findById = function(id, callback)
 var findByMultipleFields = function(a, callback)
 {
 // this takes an array of name/val pairs to search against {fieldName : 'value'} //
-	accounts.find( { $or : a } ).toArray(
+	tasks.find( { $or : a } ).toArray(
 		function(e, results) {
 		if (e) callback(e)
 		else callback(null, results)
