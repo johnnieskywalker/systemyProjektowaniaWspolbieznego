@@ -19,10 +19,18 @@ input(type='hidden', value= user._id)#userId
                 label.control-label(for='task-tf') Description
                 .controls
                     input#task-tf(type='text', name='description', value= "")
-            #task-deadline-cg.control-group
-                label.control-label(for='deadline-tf') Deadline
+            #task-start-cg.control-group
+                label.control-label(for='start-tf') Start Day
                 .controls
-                    input#deadline-tf(type='text', name='deadline', value= new Date())
+                    input#duration-tf(type='text', name='startDay', value= 1)
+            #task-duration-cg.control-group
+                label.control-label(for='duration-tf') Duration
+                .controls
+                    input#duration-tf(type='text', name='duration', value= 2)
+            #task-color-cg.control-group
+                label.control-label(for='color-tf') color
+                .controls
+                    input#duration-tf(type='text', name='color', value= '#ff00ff')
             #userList-cg.control-group
                 label.control-label(for='accts') Person
                 .controls
