@@ -21,6 +21,17 @@ EM.dispatchResetPasswordLink = function(account, callback)
 	}, callback );
 }
 
+EM.dispatchMessage = function(account, content, callback)
+{
+	EM.server.send({
+		from         : process.env.EMAIL_FROM || 'Node Login <do-not-reply@gmail.com>',
+		to           : account.email,
+		subject      : 'New Message in Concurrent Engineering App',
+		text         : content
+		//attachment   : EM.composeEmail(account)
+	}, callback );
+}
+
 EM.composeEmail = function(o)
 {
 	var link = 'http://localhost:3000/reset-password?e='+o.email+'&p='+o.pass;
