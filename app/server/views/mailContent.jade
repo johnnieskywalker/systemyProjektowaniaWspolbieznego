@@ -1,0 +1,30 @@
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+.task-form-container
+    form( method="post").task-form.form-horizontal.well.span6
+        h1
+        p#sub1.subheading Message
+        hr
+        fieldset
+           #userList-cg.control-group
+              label.control-label(for='accts') To
+              .controls
+                 select#country-list(name='person')
+                  each item in accts
+                    option(selected=item.name == person)= item.name
+           #msg-title-cg.control-group
+                label.control-label(for='msg-tf') Title
+                .controls
+                    input#msg-title-tf(type='text', name='title', value= "Sample Title")
+           #msg-content-cg.control-group
+                label.control-label(for='content-tf') Content
+                .controls
+                    textarea#msg-content-tf(type='text', name='content', rows="15" cols="60" value= "")
+            hr
+           .form-buttons
+                button(type='button')#account-form-btn2.btn
+
+
+                button(type='submit')#account-form-btn1.btn

@@ -118,6 +118,12 @@ module.exports = function(app) {
 		})
 	});
 
+	app.get('/mail', function(req, res) {
+		AM.getAllRecords( function(e, accounts){
+			res.render('mail', { title : 'Mail', accts : accounts });
+		})
+	});
+
 	app.post('/tasks', function(req, res){
 		TASK_MANAGER.addNewTask({
 			name : req.body['name'],
@@ -138,7 +144,7 @@ module.exports = function(app) {
 
 	app.get('/gantt', function(req, res) {
 		TASK_MANAGER.getAllTasks( function(e, tasks){
-			res.render('gantt', { title : 'Account List', tsks : tasks});
+			res.render('gantt', { title : 'Account List', tsks : JSON.stringify(tasks)});
 		})
 	});
 
