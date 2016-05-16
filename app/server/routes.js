@@ -3,6 +3,7 @@ var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 var TASK_MANAGER = require('./modules/task-manager');
+var PROJECT_MANAGER = require('./modules/project-manager');
 
 module.exports = function(app) {
 
@@ -118,6 +119,45 @@ module.exports = function(app) {
 		})
 	});
 
+	app.post('/tasks', function(req, res){
+		TASK_MANAGER.addNewTask({
+			name : req.body['name'],
+			description : req.body['description'],
+			startDay : req.body['startDay'],
+			duration : req.body['duration'],
+			color : req.body['color'],
+			person : req.body['person']
+
+		}, function(e){
+			if (e){
+				res.status(400).send(e);
+			}	else{
+				res.status(200).send('ok');
+			}
+		});
+	});
+
+	app.get('/project', function(req, res) {
+		AM.getAllRecords( function(e, accounts){
+			res.render('newProject', { title : 'New Project', accts : accounts });
+		})
+	});
+
+	app.post('/project', function(req, res){
+		PROJECT_MANAGER.addNewProject({
+			name : req.body['name'],
+			description : req.body['description']
+
+		}, function(e){
+			if (e){
+				res.status(400).send(e);
+			}	else{
+				res.status(200).send('ok');
+			}
+		});
+	});
+
+
 	app.get('/mail', function(req, res) {
 		AM.getAllRecords( function(e, accounts){
 			res.render('mail', { title : 'Mail', accts : accounts });
@@ -140,24 +180,6 @@ module.exports = function(app) {
 				});
 			}	else{
 				res.status(400).send('email-not-found');
-			}
-		});
-	});
-
-	app.post('/tasks', function(req, res){
-		TASK_MANAGER.addNewTask({
-			name : req.body['name'],
-			description : req.body['description'],
-			startDay : req.body['startDay'],
-			duration : req.body['duration'],
-			color : req.body['color'],
-			person : req.body['person']
-
-		}, function(e){
-			if (e){
-				res.status(400).send(e);
-			}	else{
-				res.status(200).send('ok');
 			}
 		});
 	});

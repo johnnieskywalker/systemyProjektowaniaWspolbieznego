@@ -6,22 +6,20 @@ block content
 		div.navbar-inner
 			div.container-fluid
 				ul#global-nav.nav.pull-left
-					a(href='#').brand Create Task
+					a(href='/tasks').brand Create Task
 				ul#global-nav.nav.pull-left
-					a(href='#').brand My Tasks
+					a(href='/tasks').brand My Tasks
 				ul#global-nav.nav.pull-left
 					a(href='/home').brand Control Panel
 				ul#global-nav.nav.pull-left
 					a(href='/gantt').brand Gantt
 				ul#global-nav.nav.pull-left
 					a(href='/mail').brand Message
-				ul#global-nav.nav.pull-left
-					a(href='/project').brand New Project
 				button#btn-logout.btn.btn-primary
 					i.icon-lock.icon-white
 					| Sign Out
 
-	include createTaskTable
+	include createProjectTable
 	include chat.html
 
 block scripts
