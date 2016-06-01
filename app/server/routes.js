@@ -121,13 +121,14 @@ module.exports = function(app) {
 
 	app.post('/tasks', function(req, res){
 		TASK_MANAGER.addNewTask({
-			name : req.body['name'],
-			description : req.body['description'],
-			startDay : req.body['startDay'],
-			duration : req.body['duration'],
-			color : req.body['color'],
-			person : req.body['person']
-
+			category : req.body['person'],
+			segments : [{
+				task: req.body['name'],
+				//description : req.body['description'],
+				start: req.body['startDay'],
+				duration: req.body['duration'],
+				color: req.body['color']
+			}]
 		}, function(e){
 			if (e){
 				res.status(400).send(e);
