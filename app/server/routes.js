@@ -186,9 +186,9 @@ module.exports = function(app) {
 	});
 
 	app.get('/gantt', function(req, res) {
-		TASK_MANAGER.getAllTasks( function(e, tasks){
-			res.render('gantt', { title : 'Account List', tsks : JSON.stringify(tasks)});
-		})
+		TASK_MANAGER.getAllTasks( function(e, allTasks) {
+			res.render('gantt', {title: 'Account List', tsks: allTasks});
+		});
 	});
 
 // password reset //

@@ -32,8 +32,9 @@ var test = [{
     "task": "Task #3"
 } ]
 }
-
 ];
+
+console.log(local_data);
 
 var chart = AmCharts.makeChart( "chartdiv", {
     "type": "gantt",
@@ -51,7 +52,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "brightnessStep": 10,
     "graph": {
         "fillAlphas": 1,
-        "balloonText": "<b>[[task]]</b>: [[open]] [[value]]"
+        "balloonText": "<b>[[segments[0].task]]</b>: [[open]] [[value]]"
     },
     "rotate": true,
     "categoryField": "category",
@@ -61,7 +62,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "startField": "start",
     "endField": "end",
     "durationField": "duration",
-    "dataProvider":  test,
+    "dataProvider":  local_data,
     "valueScrollbar": {
         "autoGridCount":true
     },
