@@ -4,17 +4,11 @@ block content
       div.navbar-inner
          div.container-fluid
             ul#global-nav.nav.pull-left
-               a(href='#').brand Create Task
+               a(href='/tasks').brand Create Task
             ul#global-nav.nav.pull-left
-               a(href='#').brand My Tasks
+               a(href='/project').brand New Project
             ul#global-nav.nav.pull-left
                a(href='/home').brand Control Panel
-            #userList-cg.control-group
-               label.control-label(for='tsks') Task
-               .controls
-                  select#country-list(name='person')
-                     each item in tsks
-                        option(selected=item.name == person)= item.name
             button#btn-logout.btn.btn-primary
                i.icon-lock.icon-white
                | Sign Out

@@ -52,7 +52,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "brightnessStep": 10,
     "graph": {
         "fillAlphas": 1,
-        "balloonText": "<b>[[segments[0].task]]</b>: [[open]] [[value]]"
+        "balloonText": "<b>[[task]]</b>: [[open]] [[value]]"
     },
     "rotate": true,
     "categoryField": "category",

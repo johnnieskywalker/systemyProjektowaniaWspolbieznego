@@ -4,7 +4,6 @@
     <list default="true" id="67b40dac-8978-40f0-a864-7bb9f99c311b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/views/gantt.jade" afterPath="$PROJECT_DIR$/app/server/views/gantt.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/js/views/gantt.js" afterPath="$PROJECT_DIR$/app/public/js/views/gantt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/routes.js" afterPath="$PROJECT_DIR$/app/server/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MOVED" beforePath="D:\WebStormProjects\systemyWspolbiezne\systemyProjektowaniaWspolbieznego\README.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
@@ -30,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gantt.jade" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gantt.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/server/views/gantt.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.76" vertical-offset="33" max-vertical-offset="816">
-              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.29501083" vertical-offset="0" max-vertical-offset="714">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -53,18 +52,18 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/server/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3013" max-vertical-offset="4743">
-              <caret line="191" column="7" selection-start-line="191" selection-start-column="7" selection-end-line="191" selection-end-column="7" />
+            <state vertical-scroll-proportion="-1.9122807" vertical-offset="2271" max-vertical-offset="4743">
+              <caret line="140" column="21" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gantt.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gantt.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/public/js/views/gantt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30041152" vertical-offset="772" max-vertical-offset="1479">
-              <caret line="54" column="45" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1479">
+              <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -104,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/app/server/modules/task-manager.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="765">
-              <caret line="30" column="19" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="19" />
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -377,7 +376,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17274605" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3164721" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.49965587" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.49965587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294423" sideWeight="0.5003441" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -749,14 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/server/modules/task-manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="765">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/server/modules/account-manager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2218" max-vertical-offset="3621">
@@ -765,26 +756,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/server/views/gantt.jade">
+    <entry file="file://$PROJECT_DIR$/app/server/modules/task-manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.76" vertical-offset="33" max-vertical-offset="816">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="765">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/server/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3013" max-vertical-offset="4743">
-          <caret line="191" column="7" selection-start-line="191" selection-start-column="7" selection-end-line="191" selection-end-column="7" />
+        <state vertical-scroll-proportion="-1.9122807" vertical-offset="2271" max-vertical-offset="4743">
+          <caret line="140" column="21" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/public/js/views/gantt.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30041152" vertical-offset="772" max-vertical-offset="1479">
-          <caret line="54" column="45" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1479">
+          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/server/views/gantt.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29501083" vertical-offset="0" max-vertical-offset="714">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding />
         </state>
       </provider>
